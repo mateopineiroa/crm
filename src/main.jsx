@@ -4,6 +4,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"      //createBrowserRouter: Definir router por medio de objetos. RouterProvider: Componente padre de la aplicacion.
 import Layout from './components/Layout'
 import NuevoCliente from './pages/NuevoCliente'
+import Index, { loader as clientesLoader } from './pages/Index'      //alias local
 
 
 const router = createBrowserRouter([
@@ -12,6 +13,11 @@ const router = createBrowserRouter([
     path: "/",
     element:  <Layout />,         //Lo que pongo en el element de cada children, se va a injectar en el Outlet de el padre, <Layout /> 
     children: [
+      {
+        index: true,              //Esta es la pantalla principal
+        element: <Index />,
+        loader: clientesLoader
+      },
       {
         path: "/clientes/nuevo",
         element: <NuevoCliente /> 
