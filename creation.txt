@@ -1,0 +1,23 @@
+npm i tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm i react-router-dom
+
+index.css:
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+main.jsx:
+  import { createBrowserRouter, RouterProvider } from "react-router-dom"
+  Crear array con rutas const router = createBrowserRouter([
+                            /* Arreglo de rutas */
+                            {
+                              path: "/",
+                              element: <h1>Inicio</h1>
+                            },
+                            {
+                              path: "/nosotros",
+                              element: <h1>Nosotros</h1>
+                            }
+                          ])
+  Reemplazar <App /> por <RouterProvider router={router}/>
